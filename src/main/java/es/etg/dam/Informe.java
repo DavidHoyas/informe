@@ -13,9 +13,9 @@ public class Informe {
 
         // Lista de comandos a ejecutar
         List<ComandoSistema> comandos = new ArrayList<>();
-        comandos.add(new ComandoS("ps", "Procesos del sistema"));
-        comandos.add(new ComandoS("df", "Espacio en disco"));
-        comandos.add(new ComandoS("free", "Memoria disponible"));
+        comandos.add(new Comandos("ps", "Procesos del sistema"));
+        comandos.add(new Comandos("df", "Espacio en disco"));
+        comandos.add(new Comandos("free", "Memoria disponible"));
 
         // Construye el contenido del informe
         StringBuilder informe = new StringBuilder();

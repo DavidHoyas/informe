@@ -7,33 +7,22 @@ import java.nio.file.Files;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
 public class InformeTest {
 
-    // Mock simple para simular comandos sin ejecutar nada real
-    static class ComandoMock implements ComandoSistema {
+    // Simulación de comandos sin ejecutar nada real
+    @Data
+    @AllArgsConstructor
+    static class ComandoTest implements ComandoSistema {
         private final String comando;
         private final String descripcion;
         private final String salida;
 
-        ComandoMock(String comando, String descripcion, String salida) {
-            this.comando = comando;
-            this.descripcion = descripcion;
-            this.salida = salida;
-        }
-
         @Override
         public String ejecutar() {
             return salida;
-        }
-
-        @Override
-        public String getComando() {
-            return comando;
-        }
-
-        @Override
-        public String getDescripcion() {
-            return descripcion;
         }
     }
 
@@ -47,7 +36,7 @@ public class InformeTest {
         StringBuilder informe = new StringBuilder();
         informe.append("# Informe del sistema\n\n");
 
-        ComandoSistema cmd = new ComandoMock("ps", "Procesos del sistema", "Salida simulada");
+        ComandoSistema cmd = new ComandoTest("ps", "Procesos del sistema", "Salida simulada");
         informe.append("## ").append(cmd.getDescripcion())
                .append(" (").append(cmd.getComando()).append(")\n");
         informe.append("```\n").append(cmd.ejecutar()).append("```\n\n");

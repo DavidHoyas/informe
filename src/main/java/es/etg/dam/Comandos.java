@@ -3,15 +3,17 @@ package es.etg.dam;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
+
+@Data
+@AllArgsConstructor
+
 // Implementación de un comando del sistema
-class ComandoS implements ComandoSistema {
+class Comandos implements ComandoSistema {
     private final String comando;
     private final String descripcion;
-
-    public ComandoS(String comando, String descripcion) {
-        this.comando = comando;
-        this.descripcion = descripcion;
-    }
 
     // Sobrescribe el método de la interfaz para ejecutar el comando del sistema
     @Override
@@ -33,13 +35,4 @@ class ComandoS implements ComandoSistema {
         return salida.toString(); 
     }
 
-    @Override
-    public String getComando() {
-        return comando;
-    }
-
-    @Override
-    public String getDescripcion() {
-        return descripcion;
-    }
 }
