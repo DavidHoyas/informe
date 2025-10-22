@@ -11,7 +11,6 @@ public class Informe {
 
         File md = new File("informe.md");
 
-        // Lista de comandos a ejecutar
         List<ComandoSistema> comandos = new ArrayList<>();
         comandos.add(new Comandos("ps", "Procesos del sistema"));
         comandos.add(new Comandos("df", "Espacio en disco"));
@@ -24,7 +23,7 @@ public class Informe {
         // Ejecuta cada comando y agrega su salida al informe
         for (ComandoSistema comando : comandos) {
             informe.append("## ").append(comando.getDescripcion())
-                   .append(" (").append(comando.getComando()).append(")\n");
+                .append(" (").append(comando.getComando()).append(")\n");
             informe.append("```\n").append(comando.ejecutar()).append("```\n\n");
         }
 

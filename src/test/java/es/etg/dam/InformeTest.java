@@ -38,7 +38,7 @@ public class InformeTest {
 
         ComandoSistema cmd = new ComandoTest("ps", "Procesos del sistema", "Salida simulada");
         informe.append("## ").append(cmd.getDescripcion())
-               .append(" (").append(cmd.getComando()).append(")\n");
+            .append(" (").append(cmd.getComando()).append(")\n");
         informe.append("```\n").append(cmd.ejecutar()).append("```\n\n");
 
         try (FileWriter writer = new FileWriter(informeMd)) {
