@@ -47,7 +47,7 @@ public class InformeTest {
         StringBuilder informe = new StringBuilder();
         informe.append("# Informe del sistema\n\n");
 
-        ComandoSistema cmd = new ComandoMock("echo", "Comando de prueba", "Salida simulada");
+        ComandoSistema cmd = new ComandoMock("ps", "Procesos del sistema", "Salida simulada");
         informe.append("## ").append(cmd.getDescripcion())
                .append(" (").append(cmd.getComando()).append(")\n");
         informe.append("```\n").append(cmd.ejecutar()).append("```\n\n");
@@ -60,7 +60,7 @@ public class InformeTest {
         assertTrue(informeMd.exists(), "El archivo de informe debería existir");
         String contenido = Files.readString(informeMd.toPath());
         assertTrue(contenido.contains("# Informe del sistema"));
-        assertTrue(contenido.contains("Comando de prueba"));
+        assertTrue(contenido.contains("Procesos del sistema"));
         assertTrue(contenido.contains("Salida simulada"));
     }
 }
